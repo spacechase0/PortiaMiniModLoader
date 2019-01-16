@@ -1,0 +1,12 @@
+﻿{
+  "id": "$username$.$safeprojectname$",
+  "name": "$projectname$",
+  "description": "...",
+  "author": "$username$",
+  "version": "1.0.0",
+  "type": "assembly",
+  "assembly": {
+    "dll": "$safeprojectname$.dll",
+    "class": "$safeprojectname$.Mod"
+  }
+}
