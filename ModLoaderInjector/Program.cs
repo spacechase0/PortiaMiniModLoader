@@ -27,9 +27,11 @@ namespace spacechase0.MiniModLoader.Injector
                     return;
                 }
 
+                var resolver = new CustomAssemblyResolver(Path.Combine("Portia_Data", "Managed"));
+
                 Console.WriteLine("Reading assembly...");
-                var mainAsm = AssemblyDefinition.ReadAssembly(mainAsmPath);
-                var targetAsm = AssemblyDefinition.ReadAssembly(targetAsmPath);
+                var mainAsm = AssemblyDefinition.ReadAssembly(mainAsmPath, new ReaderParameters() { AssemblyResolver = resolver } );
+                var targetAsm = AssemblyDefinition.ReadAssembly(targetAsmPath, new ReaderParameters() { AssemblyResolver = resolver });
 
                 Console.WriteLine("Checking version...");
                 string ver = CollectVersion(mainAsm);
